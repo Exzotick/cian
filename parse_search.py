@@ -1,9 +1,11 @@
-from bs4 import BeautifulSoup
-import requests
+from random import randint
 import time
 import socks
 import socket
-from random import randint
+from scipy.stats import expon
+import requests
+from bs4 import BeautifulSoup
+
 from fake_useragent import UserAgent
 
 
@@ -19,7 +21,7 @@ first_soup = BeautifulSoup(first_html, 'html.parser')
 offers_info = first_soup.find('div', 
                               attrs={'class': '_93444fe79c--totalOffers--22-FL'}
                               )
-# time.sleep(15)
+time.sleep(expon.rvs(30, 10))
 main_info = first_soup.find('div', 
                             attrs={'class': [
                                             'c6e8ba5398--title--2CW78',
